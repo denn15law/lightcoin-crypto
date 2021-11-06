@@ -1,24 +1,19 @@
 let balance = 500.0;
 
-class Deposit {
+class Transaction {
   constructor(amount, account) {
     this.amount = amount;
-
-    //pass in Account class into here
     this.account = account;
   }
+}
 
+class Deposit extends Transaction {
   commit() {
     this.account.balance += this.amount;
   }
 }
 
-class Withdrawal {
-  constructor(amount, account) {
-    this.amount = amount;
-    this.account = account;
-  }
-
+class Withdrawal extends Transaction {
   commit() {
     this.account.balance -= this.amount;
   }
